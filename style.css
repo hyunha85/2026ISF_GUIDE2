@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* ISF GUIDE BOOK VOL.2 - global/base styles */
+
+:root {
+  --page-bg: #e6eaed;
+  --font-main: 'Arita Dotum KR', sans-serif;
+}
+
+html,
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-main);
+}
+
+body {
+  margin: 0;
+  padding: 15px 0 0;
+  background: var(--page-bg) !important;
+  color: #999;
+  font-size: 35px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 6% !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 30px !important;
+  height: 60px !important;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.carousel-indicators {
+  margin-bottom: 1px !important;
+}
+
+.modal {
+  position: absolute !important;
+  top: 10% !important;
+  left: 50% !important;
+  height: 50% !important;
+  margin-left: -110px !important;
+}
+
+.modal-content {
+  width: 220px !important;
+  height: 220px !important;
+  border-radius: 500px !important;
+}
+
+.modal-header { padding: 5px !important; }
+.modal-header .btn-close { padding: .7rem .5rem; }
+.modal-body { padding: .8rem; text-align: center; }
+.modal-body img { width: 73px; }
+.modal p {
+  margin-top: 4px;
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  word-break: keep-all;
+}
+
+@media (max-width: 767px) {
+  body { padding: 0 !important; }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 60px !important;
+    height: 80px !important;
+  }
+  .carousel-indicators { margin-bottom: 7px !important; }
+  .modal-content { width: 500px; height: 500px; }
+}

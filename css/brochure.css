@@ -1,0 +1,154 @@
+@charset "utf-8";
+/* ISF GUIDE BOOK VOL.2 - brochure styles */
+
+/* ---------- FONT ---------- */
+@font-face { font-family:'Arita Dotum KR'; src:url('../fonts/AritaDotumKR-Light.ttf') format('truetype'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Arita Dotum KR'; src:url('../fonts/AritaDotumKR-Medium.ttf') format('truetype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Arita Dotum KR'; src:url('../fonts/AritaDotumKR-SemiBold.ttf') format('truetype'); font-weight:600; font-display:swap; }
+@font-face { font-family:'Arita Dotum KR'; src:url('../fonts/AritaDotumKR-Bold.ttf') format('truetype'); font-weight:700; font-display:swap; }
+
+:root {
+  --font-main: 'Arita Dotum KR', sans-serif;
+  --title-weight: 700;
+  --body-weight: 300;
+  --pill-weight: 500;
+  --title-size: clamp(25px, 7.2vw, 35px);
+  --body-size: clamp(14px, 4.1vw, 18px);
+ --pill-weight: 700;
+  --pill-size: clamp(12px, 3.4vw, 16px);
+}
+
+html, body, button, input, textarea, select { font-family:var(--font-main); }
+#carouselExampleIndicators.carousel { max-width:480px; }
+
+/* ---------- SCENE BASE ---------- */
+.brochure-scene {
+  position:relative;
+  width:100%;
+  aspect-ratio:900/1638;
+  overflow:hidden;
+  background:#eef1f4;
+}
+.scene-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.scene-copy { position:absolute; inset:0; width:100%; height:100%; }
+
+/* ---------- COMMON TYPOGRAPHY ---------- */
+.main-title {
+  position:absolute;
+  margin:0;
+  font-size:var(--title-size);
+  font-weight:var(--title-weight);
+  line-height:1.15;
+  letter-spacing:-.06em;
+  text-align:center;
+  word-break:keep-all;
+}
+.body-copy {
+  position:absolute;
+  font-size:var(--body-size);
+  font-weight:var(--body-weight);
+  line-height:1.62;
+  letter-spacing:-.04em;
+  text-align:center;
+  word-break:keep-all;
+}
+.pill {
+  position:absolute;
+  left:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.35em 1.15em .32em;
+  border-radius:999px;
+  font-size:var(--pill-size);
+  font-weight:var(--pill-weight);
+  line-height:1;
+  white-space:nowrap;
+  transform:translateX(-50%) !important;
+}
+
+/* ---------- DAY PAGE COMMON LAYOUT ----------
+   Day 페이지의 위치/색상은 아래 변수만 바꾸면 관리됩니다. */
+.day-copy .pill       { top:var(--pill-top); }
+.day-copy .main-title { top:var(--title-top); left:var(--title-left, 8%); width:var(--title-width, 84%); color:var(--title-color); }
+.day-copy .body-copy  { top:var(--body-top); left:var(--body-left, 10%); width:var(--body-width, 80%); color:var(--body-color); }
+
+/* 각 Day 페이지별 차이값만 정의 */
+.scene04 { --pill-top:14.2%; --title-top:18.5%; --body-top:25.3%; --title-color:#fff;    --body-color:#fff; }
+.scene05 { --pill-top:15.7%; --title-top:19.3%; --body-top:26.3%; --title-color:#06175b; --body-color:#0d1f61; --body-left:9%; --body-width:82%; }
+.scene06 { --pill-top:14.5%; --title-top:18.8%; --body-top:25.1%; --title-color:#fff;    --body-color:#fff; --title-left:7%; --title-width:86%; --body-left:8%; --body-width:84%; }
+.scene07 { --pill-top:14.4%; --title-top:18.9%; --body-top:29.5%; --title-color:#421b16; --body-color:#351813; }
+.scene08 { --pill-top:14.2%; --title-top:18.7%; --body-top:29.2%; --title-color:#06165e; --body-color:#10194e; --title-left:6%; --title-width:88%; --body-left:8%; --body-width:84%; }
+.scene09 { --pill-top:16.1%; --title-top:20.2%; --body-top:27.2%; --title-color:#fff;    --body-color:#fff; --title-left:7%; --title-width:86%; --body-left:9%; --body-width:82%; }
+
+/* ---------- PILL COLORS ---------- */
+.pill-blue,
+.pill-navy         { background:#10226f; color:#fff; }
+.pill-purple       { background:#4b35ff; color:#fff; }
+.pill-brown        { background:#4b1713; color:#fff; }
+.pill-yellow       { background:#ffe500; color:#0b174e; }
+.pill-white-orange { background:#fff; color:#f04419; }
+
+/* ---------- ANIMATION ---------- */
+.reveal { opacity:0; transform:translateY(18px); }
+.reveal-object { opacity:0; transform:translateY(20px) scale(.97); }
+.carousel-item.play .reveal { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) var(--delay,0s) forwards; }
+.carousel-item.play .reveal-object { animation:fadeUpScale .9s cubic-bezier(.22,1,.36,1) var(--delay,0s) forwards; }
+
+.io-fade { opacity:0; transform:translateY(16px); transition:.7s cubic-bezier(.22,1,.36,1); }
+.io-fade.in-view { opacity:1; transform:none; }
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+@keyframes fadeUpScale { to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes pillUp { to { opacity:1; transform:translateX(-50%) translateY(0); } }
+
+/* ---------- 01 COVER ---------- */
+.scene01 .s01-logo   { position:absolute; top:12.7%; left:41%; width:18%; }
+.scene01 .s01-title1 { position:absolute; top:19%; left:18%; width:64%; }
+.scene01 .s01-title2 { position:absolute; top:22.7%; left:8%; width:84%; }
+.scene01 .s01-button { position:absolute; top:86.3%; left:7%; width:86%; display:block; line-height:0; }
+.scene01 .s01-button img { width:100%; display:block; }
+.scene01 .s01-button:active img { transform:scale(.98); }
+
+/* ---------- 02 INTRO ---------- */
+.scene02 .s02-badge { position:absolute; top:13.2%; left:39%; width:22%; }
+.scene02 .main-title { top:28.2%; left:8%; width:84%; font-size:clamp(21px,5.8vw,27px); color:#111; }
+.scene02 .body-copy { top:34.5%; left:11%; width:78%; color:#222; }
+.scene02 .body-copy p { margin:0 0 0.65em; }
+.scene02 .s02-sign { position:absolute; top:62.7%; left:23%; width:55%; }
+
+/* ---------- 03 ROUTE ---------- */
+.scene03 .pill { top:13.7%; }
+.scene03 .main-title { top:18.1%; left:8%; width:84%; color:#173b98; }
+.scene03 .body-copy { top:24.4%; left:10%; width:80%; color:#171717; }
+
+/* ---------- 10 CLOSING ---------- */
+.scene10 .photo-object { position:absolute; top:22.3%; left:3%; width:94%; }
+.scene10 .closing-kicker { position:absolute; top:43.4%; left:0; width:100%; text-align:center; color:#1596df; font: italic clamp(22px, 5vw, 14px) / 1 Georgia, serif; letter-spacing: -1px; }
+.scene10 .main-title { top:47%; left:8%; width:84%; color:#000; font-size: clamp(25px, 7.2vw, 30px);}
+.scene10 .body-copy { top:53%; left:11%; width:78%; color:#111; }
+
+/* ---------- 11 REWARD ---------- */
+.scene11 { position:relative; overflow:hidden; }
+.scene11 p { font-size:clamp(12px,3.4vw,14.5px); font-weight:var(--body-weight); }
+.reward-background { position:absolute; inset:0; z-index:0; background:url('../images/scenes/scene11_background.jpg') center/cover no-repeat; }
+.reward-scroll { position:absolute; top:3%; right:4%; bottom:3%; left:4%; overflow-y:auto; overflow-x:hidden; box-sizing:border-box; padding:5% 3% 8%; border-radius:24px; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; touch-action:pan-y; scrollbar-width:none; }
+.reward-scroll::-webkit-scrollbar { display:none; }
+.reward-head h2 { margin:0 0 .3em; color:#16345c; font-size:clamp(23px,6.6vw,29px); font-weight:var(--title-weight); line-height:1.2; text-align:center; }
+.reward-meta { color:#2a4a73; font-weight:var(--pill-weight) !important; text-align:center; }
+.date { width:70%; margin:0 auto 1.5rem !important; border-top:.5px solid #999; border-bottom:.5px solid #999; }
+.reward-tier { margin-bottom:6%; }
+.reward-tier h3 { margin:0 0 1%; color:#16345c; font-size:clamp(17px,4.8vw,19px); font-weight:var(--title-weight); text-align:center; }
+.reward-table { overflow:hidden; border-radius:18px; box-shadow:0 6px 18px rgba(20,45,90,.18); }
+.reward-row { display:flex; }
+.reward-label,
+.reward-value { display:flex; align-items:center; padding:2.2% 3%; font-size:clamp(11.5px,3vw,14px); line-height:1.5; }
+.reward-label { flex:0 0 38%; background:#142d85; color:#fff; font-weight:var(--pill-weight); }
+.reward-value { flex:1; background:#f5f8fc; color:#142d85; font-weight:600; }
+.reward-row + .reward-row .reward-label,
+.reward-row + .reward-row .reward-value { border-top:1px solid rgba(20,45,90,.12); }
+.reward-notes { color:#333; line-height:1.45; }
+.reward-notes p { margin:.35em 0; }
+.reward-foot-spacer { height:14%; }
+
+/* ---------- INDICATOR ---------- */
+.carousel-indicators [data-bs-target] { width:6px !important; height:6px !important; margin:0 2px !important; border-radius:50%; }
